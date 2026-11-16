@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es-PR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101013">
+  <meta
+    name="description"
+    content="Creatstudio es un escenario público para duelos de canto y retos de arte visual entre dos artistas."
+  >
+  <title>Creatstudio | Duelos de canto y arte</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header id="inicio" class="site-header">
+    <div class="topbar">
+      <a class="brand" href="#inicio">creatstudio<span>.</span></a>
+      <span class="badge">Modo demo</span>
+    </div>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <div class="container">
+        <a href="#formatos">Formatos</a>
+        <a href="#escenario">Escenario</a>
+        <a href="#como-funciona">Cómo funciona</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Dos artistas.<br>Un <em>escenario.</em></h1>
+      <p>
+        Canta frente a otro artista, presenta tu obra en un VS de arte
+        o entra al público para ver quién se trepa al escenario.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#join-form">Quiero participar</a>
+        <a href="#escenario">Ver escenario</a>
+      </div>
+    </section>
+
+    <section id="formatos" class="content-section" aria-labelledby="formats-title">
+      <div class="section-header">
+        <h2 id="formats-title">Escoge tu formato</h2>
+      </div>
+
+      <div class="topic-grid">
+        <article class="panel topic-card">
+          <h3>Duelo de canto</h3>
+          <p>
+            Cada artista tiene su turno para cantar. Puedes preparar un cover,
+            un coro original o una interpretación a capela.
+          </p>
+          <p><strong>Reto de ejemplo:</strong> interpreta el mismo coro con tu propio estilo.</p>
+        </article>
+
+        <article class="panel topic-card">
+          <h3>VS de arte visual</h3>
+          <p>
+            Dos artistas presentan su versión de un mismo reto. Puedes participar
+            con una ilustración, una foto o un diseño digital.
+          </p>
+          <p><strong>Reto de ejemplo:</strong> diseña una portada para un disco que se llame <em>Después de medianoche</em>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="escenario" class="content-section" aria-labelledby="stage-title">
+      <div class="section-header">
+        <h2 id="stage-title">El escenario</h2>
+        <p>Mira quién está en cada lado del VS y sigue el chat del encuentro.</p>
+      </div>
+
+      <div class="layout">
+        <section class="panel" aria-labelledby="chat-title">
+          <div class="panel-header">
+            <h2 id="chat-title">Encuentro de demostración</h2>
+            <span id="room-mode" class="muted">Espectador</span>
+          </div>
+
+          <div class="matchup" aria-label="Artistas del encuentro">
+            <div class="artist artist-one">
+              <strong id="artist-one">Luna</strong>
+              <small id="role-one">Cantautora</small>
+            </div>
+
+            <span class="versus" aria-label="contra">VS</span>
+
+            <div class="artist artist-two">
+              <strong id="artist-two">Nox</strong>
+              <small id="role-two">Productor musical</small>
+            </div>
+          </div>
+
+          <div class="panel-header">
+            <h3>Chat del encuentro</h3>
+            <span class="muted">Sala pública</span>
+          </div>
+
+          <div
+            id="messages"
+            class="messages"
+            role="log"
+            aria-label="Mensajes del encuentro"
+            tabindex="0"
+          ></div>
+
+          <form id="chat-form" class="composer">
+            <input
+              id="message"
+              name="message"
+              type="text"
+              aria-label="Mensaje para el chat"
+              placeholder="Escribe un mensaje"
+              maxlength="280"
+              autocomplete="off"
+              required
+              disabled
+            >
+            <button id="send" type="submit" disabled>Enviar</button>
+          </form>
+
+          <noscript>
+            <p>Activa JavaScript para probar el escenario y el chat.</p>
+          </noscript>
+        </section>
+
+        <aside class="panel join-panel" aria-labelledby="join-title">
+          <h2 id="join-title">Súbete al escenario</h2>
+
+          <form id="join-form" class="join-form">
+            <label for="alias">Nombre artístico</label>
+            <input
+              id="alias"
+              name="alias"
+              type="text"
+              placeholder="Ej. JR"
+              maxlength="24"
+              autocomplete="nickname"
+            >
+
+            <label for="topic">Formato del encuentro</label>
+            <select id="topic" name="topic">
+              <option value="music">Duelo de canto</option>
+              <option value="art">VS de arte visual</option>
+            </select>
+
+            <button id="join" type="submit">Buscar artista al azar</button>
+          </form>
+
+          <button id="watch" class="secondary" type="button" disabled>
+            Volver a mirar
+          </button>
+
+          <p id="status" class="muted" role="status">
+            Estás viendo un encuentro de ejemplo.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section
+      id="como-funciona"
+      class="content-section"
+      aria-labelledby="how-title"
+    >
+      <div class="section-header">
+        <h2 id="how-title">Cómo funciona un VS</h2>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h3>Entra con tu nombre artístico</h3>
+          <p>Escoge canto o arte visual y busca a otro participante del mismo formato.</p>
+        </li>
+        <li>
+          <h3>Presenta tu turno</h3>
+          <p>En canto, cada artista interpreta su pieza. En arte visual, cada artista presenta su obra.</p>
+        </li>
+        <li>
+          <h3>Mira desde el público</h3>
+          <p>Los visitantes pueden ver los nombres de los dos artistas y seguir el encuentro desde la sala.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a class="brand" href="#inicio">creatstudio<span>.</span></a>
+      <p class="muted">Canto y arte visual.</p>
+    </div>
+  </footer>
+</body>
+</html>
